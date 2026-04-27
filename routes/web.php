@@ -47,5 +47,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('production', ProductionController::class);
     Route::resource('shipment', ShipmentController::class);
 });
+Route::get('/migrate-force', function () {
+    \Illuminate\Support\Facades\Artisan::call('migrate --force');
+    return "Tablolar canavar gibi kuruldu!";
+});
+
+
 
 require __DIR__.'/auth.php';
